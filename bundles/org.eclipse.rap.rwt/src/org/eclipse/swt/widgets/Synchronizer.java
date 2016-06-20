@@ -179,6 +179,7 @@ boolean runAsyncMessages (boolean all) {
 			try {
 				lock.run ();
 			}	catch( ThreadDeath t ) {
+				lock.throwable = t;
         // Don't trap ThreadDeath, see bug 284202
         throw t;
 			} catch (Throwable t) {
