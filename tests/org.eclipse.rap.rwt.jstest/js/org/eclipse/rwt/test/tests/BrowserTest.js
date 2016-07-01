@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2010, 2016 EclipseSource and others.
+ * Copyright (c) 2010, 2014 EclipseSource and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -67,7 +67,7 @@ rwt.qx.Class.define( "org.eclipse.rwt.test.tests.BrowserTest", {
       widget.destroy();
     },
 
-    testSetUrlByProtocol : [
+    testSetUrlByProtocol :  [
       function() {
         TestUtil.createShellByProtocol( "w2" );
         Processor.processOperation( {
@@ -76,22 +76,12 @@ rwt.qx.Class.define( "org.eclipse.rwt.test.tests.BrowserTest", {
           "type" : "rwt.widgets.Browser",
           "properties" : {
             "style" : [],
-            "parent" : "w2"
-          }
-        } );
-        TestUtil.flush();
-
-        Processor.processOperation( {
-          "target" : "w3",
-          "action" : "set",
-          "properties" : {
+            "parent" : "w2",
             "url" : this.URL1
           }
         } );
-
-        var browser = ObjectRegistry.getObject( "w3" );
-        assertEquals( browser.getIframeNode().src.slice( -10 ), "blank.html" );
         TestUtil.delayTest( 7000 );
+        var browser = ObjectRegistry.getObject( "w3" );
         TestUtil.store( browser );
       },
       function( browser ) {
@@ -127,14 +117,6 @@ rwt.qx.Class.define( "org.eclipse.rwt.test.tests.BrowserTest", {
       assertNull( domain1 );
       assertNull( domain2 );
       assertNull( domain3 );
-    },
-
-    testBrowserIsSelectable : function() {
-      var browser = this._createBrowser();
-
-      assertTrue( browser.getSelectable() );
-      assertEquals( "text", rwt.html.Style.getUserSelect( browser.getElement() ) );
-      browser.destroy();
     },
 
     testExecute :  [
