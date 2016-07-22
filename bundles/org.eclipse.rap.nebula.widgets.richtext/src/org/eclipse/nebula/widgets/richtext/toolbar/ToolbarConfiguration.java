@@ -15,6 +15,8 @@ package org.eclipse.nebula.widgets.richtext.toolbar;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.nebula.widgets.richtext.RichTextEditorConfiguration;
+
 
 /**
  * The toolbar configuration of the CKEditor toolbar. Contains the default toolbar configuration via
@@ -24,8 +26,10 @@ import java.util.Set;
  * {@link #getToolbarGroupConfiguration()} and {@link #getRemoveButtonConfiguration()}
  * </p>
  *
+ * @deprecated Use the more general {@link RichTextEditorConfiguration}
  * @since 3.1
  */
+@Deprecated
 public class ToolbarConfiguration {
 
   private static final String CKEDITOR_CONFIG_TOOLBAR_GROUPS = "CKEDITOR.config.toolbarGroups";
@@ -37,13 +41,13 @@ public class ToolbarConfiguration {
    * Configure whether to remove the <i>paste text</i> button from the toolbar. Default is
    * <code>true</code>.
    */
-  /*public*/ private final boolean removePasteText = true;
+  /*public*/ public final boolean removePasteText = true;
 
   /**
    * Configure whether to remove the <i>paste from word</i> button from the toolbar. Default is
    * <code>true</code>.
    */
-  /*public*/ private final boolean removePasteFromWord = true;
+  /*public*/ public final boolean removePasteFromWord = true;
 
   /**
    * Configure whether to remove the <i>styles</i> combo box from the toolbar. Default is
@@ -67,6 +71,7 @@ public class ToolbarConfiguration {
    * {@link #toolbarCollapsible} is set to <code>true</code>. Default is <code>true</code>.
    */
   public boolean toolbarInitialExpanded = true;
+
 
   private final Set<String> removedButtons = new HashSet<>();
 
@@ -133,7 +138,7 @@ public class ToolbarConfiguration {
   protected String getRemoveButtonConfiguration() {
     StringBuilder builder = new StringBuilder( "CKEDITOR.config.removeButtons = \"" );
     if( removePasteText ) {
-      builder.append( ",PasteText" );
+      builder.append( "PasteText" );
     }
     if( removePasteFromWord ) {
       builder.append( ",PasteFromWord" );
@@ -144,7 +149,7 @@ public class ToolbarConfiguration {
     if( removeFormat ) {
       builder.append( ",Format" );
     }
-    for( String removed : removedButtons ) {
+    for( String removed : getRemovedButtons() ) {
       builder.append( "," ).append( removed );
     }
     builder.append( "\";" );
@@ -161,7 +166,7 @@ public class ToolbarConfiguration {
    * @param buttonName The name of the CKEditor default button to add.
    */
   public void addDefaultToolbarButton( String buttonName ) {
-    this.removedButtons.remove( buttonName );
+    this.getRemovedButtons().remove( buttonName );
   }
 
   /**
@@ -170,21 +175,21 @@ public class ToolbarConfiguration {
    * @param buttonName The name of the CKEditor default button to remove.
    */
   public void removeDefaultToolbarButton( String buttonName ) {
-    this.removedButtons.add( buttonName );
+    this.getRemovedButtons().add( buttonName );
   }
 
   @Override
   public String toString() {
     StringBuilder builder = new StringBuilder( "{" );
-    builder.append( "\"toolbarGroups\":" ).append( extractToolbarGroupConfiguration() ).append( "," );
-    builder.append( "\"removeButtons\":" ).append( extractRemoveButtonConfiguration() ).append( "," );
+    builder.append( "\"toolbarGroups\":" ).append( getExtractedToolbarGroupConfiguration() ).append( "," );
+    builder.append( "\"removeButtons\":" ).append( getExtractedRemoveButtonConfiguration() ).append( "," );
     builder.append( "\"toolbarCanCollapse\":" ).append( toolbarCollapsible ).append( "," );
     builder.append( "\"toolbarStartupExpanded\":" ).append( toolbarInitialExpanded );
     builder.append( "}" );
     return builder.toString();
   }
 
-  private String extractToolbarGroupConfiguration() {
+  public String getExtractedToolbarGroupConfiguration() {
     String toolbarGroupConfiguration = getToolbarGroupConfiguration().trim();
     if(    !toolbarGroupConfiguration.startsWith( CKEDITOR_CONFIG_TOOLBAR_GROUPS )
         || !toolbarGroupConfiguration.endsWith( ";" ) ) {
@@ -195,7 +200,7 @@ public class ToolbarConfiguration {
     return toolbarGroupConfiguration.substring( equalSignIndex + 1, lastSemicolonIndex ).trim();
   }
 
-  private String extractRemoveButtonConfiguration() {
+  public String getExtractedRemoveButtonConfiguration() {
     String removeButtonConfiguration = getRemoveButtonConfiguration().trim();
     if(    !removeButtonConfiguration.startsWith( CKEDITOR_CONFIG_REMOVE_BUTTONS )
         || !removeButtonConfiguration.endsWith( ";" ) ) {
@@ -205,5 +210,11 @@ public class ToolbarConfiguration {
     int lastSemicolonIndex = removeButtonConfiguration.lastIndexOf( ';' );
     return removeButtonConfiguration.substring( equalSignIndex + 1, lastSemicolonIndex ).trim();
   }
+
+  public Set<String> getRemovedButtons() {
+    return removedButtons;
+  }
+
+
 
 }

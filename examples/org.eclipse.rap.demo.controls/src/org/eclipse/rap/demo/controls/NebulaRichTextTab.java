@@ -59,7 +59,7 @@ public class NebulaRichTextTab extends ExampleTab {
   private void createRichTextEditor( Composite parent ) {
     ToolbarConfiguration config = new ToolbarConfiguration() {
       @Override
-      protected String getToolbarGroupConfiguration() {
+		public String getToolbarGroupConfiguration() {
         if( reorderToolbarGroups ) {
           StringBuilder builder = new StringBuilder( "CKEDITOR.config.toolbarGroups = [" );
           builder.append( "{\"name\":\"styles\"}," );

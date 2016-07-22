@@ -42,11 +42,11 @@ public class ToolbarConfiguration_Test {
   public void testToString_withCustomConfigurations() {
     toolbarConfig = new ToolbarConfiguration() {
       @Override
-      protected String getToolbarGroupConfiguration() {
+      public String getToolbarGroupConfiguration() {
         return "CKEDITOR.config.toolbarGroups = [];";
       }
       @Override
-      protected String getRemoveButtonConfiguration() {
+      public String getRemoveButtonConfiguration() {
         return "CKEDITOR.config.removeButtons = \"Subscript\";";
       }
     };
@@ -63,7 +63,7 @@ public class ToolbarConfiguration_Test {
   public void testToString_throwsWithInvalidToolbarGroupsConfig() {
     toolbarConfig = new ToolbarConfiguration() {
       @Override
-      protected String getToolbarGroupConfiguration() {
+      public String getToolbarGroupConfiguration() {
         return "invalid";
       }
     };
@@ -75,7 +75,7 @@ public class ToolbarConfiguration_Test {
   public void testToString_throwsWithInvalidRemoveButtonsConfig() {
     toolbarConfig = new ToolbarConfiguration() {
       @Override
-      protected String getRemoveButtonConfiguration() {
+      public String getRemoveButtonConfiguration() {
         return "invalid";
       }
     };
