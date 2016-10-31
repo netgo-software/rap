@@ -1,74 +1,72 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Copyright (C) 2014, 2016 EclipseSource and others.
-  All rights reserved. This program and the accompanying materials
-  are made available under the terms of the Eclipse Public License v1.0
-  which accompanies this distribution, and is available at
-  http://www.eclipse.org/legal/epl-v10.html
+	Copyright (C) 2014, 2016 EclipseSource and others.
+	All rights reserved. This program and the accompanying materials
+	are made available under the terms of the Eclipse Public License v1.0
+	which accompanies this distribution, and is available at
+	http://www.eclipse.org/legal/epl-v10.html
 
-  Contributors:
-     EclipseSource - initial implementation
+	Contributors:
+	EclipseSource - initial implementation
 -->
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
 
-  <name>RAP Runtime Build</name>
+	<name>RAP Runtime Build</name>
 
-  <groupId>org.eclipse.rap</groupId>
-  <artifactId>org.eclipse.rap.runtime-build</artifactId>
-  <packaging>pom</packaging>
-  <version>3.1.1-SNAPSHOT</version>
+	<groupId>org.eclipse.rap</groupId>
+	<artifactId>org.eclipse.rap.runtime-build</artifactId>
+	<packaging>pom</packaging>
+	<version>3.1.1-SNAPSHOT</version>
 
-  <modules>
-    <!-- Runtime projects -->
-    <module>bundles/org.eclipse.rap.filedialog</module>
-    <module>bundles/org.eclipse.rap.fileupload</module>
-    <module>bundles/org.eclipse.rap.jface.databinding</module>
-    <module>bundles/org.eclipse.rap.jface</module>
-    <module>bundles/org.eclipse.rap.nebula.jface.gridviewer</module>
-    <module>bundles/org.eclipse.rap.nebula.widgets.grid</module>
-    <module>bundles/org.eclipse.rap.nebula.widgets.richtext</module>
-    <module>bundles/org.eclipse.rap.rwt</module>
-    <module>bundles/org.eclipse.rap.rwt.osgi</module>
-    <module>bundles/org.eclipse.rap.ui.cheatsheets</module>
-    <module>bundles/org.eclipse.rap.ui.forms</module>
-    <module>bundles/org.eclipse.rap.ui</module>
-    <module>bundles/org.eclipse.rap.ui.views</module>
-    <module>bundles/org.eclipse.rap.ui.workbench</module>
-    <!-- Examples projects -->
-    <module>examples/org.eclipse.rap.demo.controls</module>
-    <module>examples/org.eclipse.rap.demo.databinding</module>
-    <module>examples/org.eclipse.rap.demo</module>
-    <module>examples/org.eclipse.rap.design.example</module>
-    <module>examples/org.eclipse.rap.examples</module>
-    <module>examples/org.eclipse.rap.examples.pages</module>
-    <module>examples/org.eclipse.rap.filedialog.demo.examples</module>
-    <module>examples/org.eclipse.rap.nebula.widgets.grid.demo.examples</module>
-    <module>examples/org.eclipse.rap.nebula.widgets.richtext.demo.examples</module>
-    <!-- Test projects -->
-    <module>tests/org.eclipse.rap.filedialog.test</module>
-    <module>tests/org.eclipse.rap.fileupload.test</module>
-    <module>tests/org.eclipse.rap.nebula.widgets.grid.test</module>
-    <module>tests/org.eclipse.rap.nebula.widgets.richtext.test</module>
-    <module>tests/org.eclipse.rap.rwt.cluster.testfixture</module>
-    <module>tests/org.eclipse.rap.rwt.cluster.testfixture.test</module>
-    <module>tests/org.eclipse.rap.rwt.cluster.test</module>
-    <module>tests/org.eclipse.rap.rwt.osgi.test</module>
-    <module>tests/org.eclipse.rap.rwt.testfixture</module>
-    <module>tests/org.eclipse.rap.rwt.test</module>
-    <module>tests/org.eclipse.rap.rwt.themes.test</module>
-    <module>tests/org.eclipse.rap.ui.forms.test</module>
-    <!-- Packaging projects -->
-    <module>features/org.eclipse.rap.equinox.target.feature</module>
-    <module>features/org.eclipse.rap.examples.feature</module>
-    <module>features/org.eclipse.rap.feature</module>
-    <module>features/org.eclipse.rap.sdk.feature</module>
-    <!-- Repository projects -->
-    <module>releng/org.eclipse.rap.build/repository</module>
-    <!-- Builder projects -->
-    <module>releng/org.eclipse.rap.clientbuilder</module>
-  </modules>
-
+	<modules>
+		<!-- Runtime projects -->
+		<module>bundles/org.eclipse.rap.filedialog</module>
+		<module>bundles/org.eclipse.rap.fileupload</module>
+		<module>bundles/org.eclipse.rap.jface.databinding</module>
+		<module>bundles/org.eclipse.rap.jface</module>
+		<module>bundles/org.eclipse.rap.nebula.jface.gridviewer</module>
+		<module>bundles/org.eclipse.rap.nebula.widgets.grid</module>
+		<module>bundles/org.eclipse.rap.nebula.widgets.richtext</module>
+		<module>bundles/org.eclipse.rap.rwt</module>
+		<module>bundles/org.eclipse.rap.rwt.osgi</module>
+		<module>bundles/org.eclipse.rap.ui.cheatsheets</module>
+		<module>bundles/org.eclipse.rap.ui.forms</module>
+		<module>bundles/org.eclipse.rap.ui</module>
+		<module>bundles/org.eclipse.rap.ui.views</module>
+		<module>bundles/org.eclipse.rap.ui.workbench</module>
+		<!-- Examples projects -->
+		<module>examples/org.eclipse.rap.demo.controls</module>
+		<module>examples/org.eclipse.rap.demo.databinding</module>
+		<module>examples/org.eclipse.rap.demo</module>
+		<module>examples/org.eclipse.rap.design.example</module>
+		<module>examples/org.eclipse.rap.examples</module>
+		<module>examples/org.eclipse.rap.examples.pages</module>
+		<module>examples/org.eclipse.rap.filedialog.demo.examples</module>
+		<module>examples/org.eclipse.rap.nebula.widgets.grid.demo.examples</module>
+		<module>examples/org.eclipse.rap.nebula.widgets.richtext.demo.examples</module>
+		<!-- Test projects -->
+		<module>tests/org.eclipse.rap.filedialog.test</module>
+		<module>tests/org.eclipse.rap.fileupload.test</module>
+		<module>tests/org.eclipse.rap.nebula.widgets.grid.test</module>
+		<module>tests/org.eclipse.rap.nebula.widgets.richtext.test</module>
+		<module>tests/org.eclipse.rap.rwt.cluster.testfixture</module>
+		<module>tests/org.eclipse.rap.rwt.cluster.testfixture.test</module>
+		<module>tests/org.eclipse.rap.rwt.cluster.test</module>
+		<module>tests/org.eclipse.rap.rwt.osgi.test</module>
+		<module>tests/org.eclipse.rap.rwt.testfixture</module>
+		<module>tests/org.eclipse.rap.rwt.test</module>
+		<module>tests/org.eclipse.rap.rwt.themes.test</module>
+		<module>tests/org.eclipse.rap.ui.forms.test</module>
+		<!-- Packaging projects -->
+		<module>features/org.eclipse.rap.equinox.target.feature</module>
+		<module>features/org.eclipse.rap.examples.feature</module>
+		<module>features/org.eclipse.rap.feature</module>
+		<module>features/org.eclipse.rap.sdk.feature</module>
+		<!-- Repository projects -->
+		<module>releng/org.eclipse.rap.build/repository</module>
+		<!-- Builder projects -->
+		<module>releng/org.eclipse.rap.clientbuilder</module>
+		<module>releng/org.eclipse.rap.mavenbuilder</module>
+	</modules>
 </project>

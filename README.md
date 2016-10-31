@@ -30,7 +30,7 @@ examples, and p2 repositories, and it's *easy* to run the build locally!
 All you need is Maven installed on your computer, and then you need to
 run the following command from the root of the Git repository:
 
-    mvn clean verify
+    mvn clean install
 
 As a result, you'll get a p2 repository with all the RAP Runtime bundles and
 features in
@@ -38,6 +38,22 @@ features in
     releng/org.eclipse.rap.build/repository/target/repository/
 
 Official builds are available from the [RAP Download page] [4].
+
+Deploying RAP Runtime
+---------------------
+
+After installing go to 
+
+    releng/org.eclipse.rap.mavenbuilder
+    
+For deploying snapshots run
+
+    mvn deploy 
+
+For deploying releases run
+
+    mvn deploy -Prelease
+
 
 Contributions
 -------------
