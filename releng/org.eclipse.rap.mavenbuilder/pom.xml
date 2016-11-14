@@ -24,6 +24,7 @@
 
 	<properties>
 		<tolina.repo.url>http://srvrepo.tolina.local/nexus/content/repositories/snapshots</tolina.repo.url>
+		<release.version>${project.version}</release.version>
 	</properties>
 
 	<build>
@@ -54,6 +55,7 @@
 							<file>../../bundles/org.eclipse.rap.rwt/target/org.eclipse.rap.rwt-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.rwt/target/org.eclipse.rap.rwt-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.rwt.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -67,6 +69,7 @@
 							<file>../../bundles/org.eclipse.rap.fileupload/target/org.eclipse.rap.fileupload-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.fileupload/target/org.eclipse.rap.fileupload-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.fileupload.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -80,6 +83,7 @@
 							<file>../../bundles/org.eclipse.rap.filedialog/target/org.eclipse.rap.filedialog-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.filedialog/target/org.eclipse.rap.filedialog-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.filedialog.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -93,6 +97,7 @@
 							<file>../../bundles/org.eclipse.rap.jface/target/org.eclipse.rap.jface-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.jface/target/org.eclipse.rap.jface-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.jface.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -106,6 +111,7 @@
 							<file>../../bundles/org.eclipse.rap.jface.databinding/target/org.eclipse.rap.jface.databinding-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.jface.databinding/target/org.eclipse.rap.jface.databinding-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.jface.databinding.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -119,6 +125,7 @@
 							<file>../../bundles/org.eclipse.rap.nebula.widgets.richtext/target/org.eclipse.rap.nebula.widgets.richtext-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.nebula.widgets.richtext/target/org.eclipse.rap.nebula.widgets.richtext-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.nebula.widgets.richtext.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 				</executions>
@@ -148,6 +155,7 @@
 							<file>../../bundles/org.eclipse.rap.rwt/target/org.eclipse.rap.rwt-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.rwt/target/org.eclipse.rap.rwt-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.rwt.pom.xml</pomFile>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -161,7 +169,7 @@
 							<file>../../bundles/org.eclipse.rap.fileupload/target/org.eclipse.rap.fileupload-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.fileupload/target/org.eclipse.rap.fileupload-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.fileupload.pom.xml</pomFile>
-							<url>${tolina.repo.url}</url>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -175,7 +183,7 @@
 							<file>../../bundles/org.eclipse.rap.filedialog/target/org.eclipse.rap.filedialog-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.filedialog/target/org.eclipse.rap.filedialog-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.filedialog.pom.xml</pomFile>
-							<url>${tolina.repo.url}</url>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -189,7 +197,7 @@
 							<file>../../bundles/org.eclipse.rap.jface/target/org.eclipse.rap.jface-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.jface/target/org.eclipse.rap.jface-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.jface.pom.xml</pomFile>
-							<url>${tolina.repo.url}</url>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -203,7 +211,7 @@
 							<file>../../bundles/org.eclipse.rap.jface.databinding/target/org.eclipse.rap.jface.databinding-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.jface.databinding/target/org.eclipse.rap.jface.databinding-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.jface.databinding.pom.xml</pomFile>
-							<url>${tolina.repo.url}</url>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 					<execution>
@@ -217,7 +225,7 @@
 							<file>../../bundles/org.eclipse.rap.nebula.widgets.richtext/target/org.eclipse.rap.nebula.widgets.richtext-${project.version}.jar</file>
 							<sources>../../bundles/org.eclipse.rap.nebula.widgets.richtext/target/org.eclipse.rap.nebula.widgets.richtext-${project.version}-sources.jar</sources>
 							<pomFile>${project.build.outputDirectory}/org.eclipse.rap.nebula.widgets.richtext.pom.xml</pomFile>
-							<url>${tolina.repo.url}</url>
+							<version>${release.version}</version>
 						</configuration>
 					</execution>
 				</executions>
@@ -229,6 +237,7 @@
 		<profile>
 			<id>release</id>
 			<properties>
+				<release.version></release.version>
 				<tolina.repo.url>http://srvrepo.tolina.local/nexus/content/repositories/releases</tolina.repo.url>
 			</properties>
 		</profile>
