@@ -9,7 +9,7 @@
 	<artifactId>org.eclipse.rap.jface</artifactId>
 	<packaging>jar</packaging>
 	<name>RAP JFace</name>
-	<version>${project.version}</version>
+	<version>${release.version}</version>
 	<description>JFace for RAP</description>
 	<url>http://eclipse.org/rap/</url>
 	<licenses>
@@ -29,6 +29,16 @@
 			<groupId>org.eclipse.rap</groupId>
 			<artifactId>org.eclipse.rap.rwt</artifactId>
 			<version>[3.1.0,4.0.0)</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.core</groupId>
+			<artifactId>commands</artifactId>
+			<version>3.8.0.v20160316-1921</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.equinox</groupId>
+			<artifactId>common</artifactId>
+			<version>3.8.0.v20160509-1230</version>
 		</dependency>
 	</dependencies>
 </project>

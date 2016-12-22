@@ -9,7 +9,7 @@
 	<artifactId>org.eclipse.rap.jface.databinding</artifactId>
 	<packaging>jar</packaging>
 	<name>RAP JFace Data Binding for SWT and JFace</name>
-	<version>${project.version}</version>
+	<version>${release.version}</version>
 	<description>JFace Databinding for RAP</description>
 	<url>http://eclipse.org/rap/</url>
 	<licenses>

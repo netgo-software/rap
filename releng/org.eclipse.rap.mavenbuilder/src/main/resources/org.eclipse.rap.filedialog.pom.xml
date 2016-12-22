@@ -9,7 +9,7 @@
 	<artifactId>org.eclipse.rap.filedialog</artifactId>
 	<packaging>jar</packaging>
 	<name>RAP FileDialog</name>
-	<version>${project.version}</version>
+	<version>${release.version}</version>
 	<description>RAP FileDialog</description>
 	<url>http://eclipse.org/rap/</url>
 	<licenses>

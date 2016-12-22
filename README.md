@@ -52,7 +52,7 @@ For deploying snapshots run
 
 For deploying releases run
 
-    mvn deploy -Prelease
+    mvn deploy -Prelease -Drelease.version=x.y.z.tolina
 
 
 Contributions

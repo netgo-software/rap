@@ -9,7 +9,7 @@
 	<artifactId>org.eclipse.rap.rwt</artifactId>
 	<packaging>jar</packaging>
 	<name>RAP Widget Toolkit (RWT)</name>
-	<version>${project.version}</version>
+	<version>${release.version}</version>
 	<description>The RAP Widget Toolkit</description>
 	<url>http://eclipse.org/rap/</url>
 	<licenses>

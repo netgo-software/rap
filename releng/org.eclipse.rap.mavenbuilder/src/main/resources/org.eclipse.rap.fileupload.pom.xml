@@ -9,7 +9,7 @@
 	<artifactId>org.eclipse.rap.fileupload</artifactId>
 	<packaging>jar</packaging>
 	<name>RAP File Upload Service</name>
-	<version>${project.version}</version>
+	<version>${release.version}</version>
 	<description>RAP FileDialog</description>
 	<url>http://eclipse.org/rap/</url>
 	<licenses>
