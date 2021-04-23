@@ -134,6 +134,7 @@ rwt.qx.Class.define("rwt.widgets.base.Window",
 
     bc.setAppearance("window-captionbar-close-button");
     bc.setTabIndex(null);
+	bc.changeAriaLabelTo("Schliessen");
 
     bc.addEventListener("execute", this._onclosebuttonclick, this);
     bc.addEventListener("mousedown", this._onbuttonmousedown, this);

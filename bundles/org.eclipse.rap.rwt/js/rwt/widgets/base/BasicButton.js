@@ -33,6 +33,7 @@ rwt.qx.Class.define( "rwt.widgets.base.BasicButton", {
       case "push":
         this._isSelectable = false;
         this._isDeselectable = false;
+		this.setAriaRole("button");
       break;
       case "toggle":
       case "check":
@@ -111,6 +112,11 @@ rwt.qx.Class.define( "rwt.widgets.base.BasicButton", {
           ( this._hotImage[ 0 ] != null && this.hasState( "over" ) )
         ? this._hotImage
         : this._image;
+	  // TRICK mit Annahme, dass alle Buttons mit nur einem Symbol ohne Text ein Schliessen-Button sind
+	  // if( this.getCellContent( 2 ) == null) {
+		// this.setImgAlt(1, "Schliessen");
+		// this.setAriaLabel("Schliessen");
+	  // }
       var current = this.getCellContent( 1 );
       if( current != image[ 0 ] ) {
         this.setCellContent( 1, image[ 0 ] );
@@ -168,6 +174,7 @@ rwt.qx.Class.define( "rwt.widgets.base.BasicButton", {
       if( selectionChanged || wasSelected ) {
         this._notifySelected();
       }
+	  this.changeAriaCheckedTo( value );
     },
 
     _notifySelected : function() {

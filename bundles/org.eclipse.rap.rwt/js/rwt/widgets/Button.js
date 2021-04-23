@@ -27,9 +27,11 @@ rwt.qx.Class.define( "rwt.widgets.Button", {
      break;
      case "check":
        this.setAppearance( "check-box" );
+	   this.setAriaRole("checkbox");
      break;
      case "radio":
        this.setAppearance( "radio-button" );
+	   this.setAriaRole("radio");
     }
     this.initTabIndex();
     this._rawText = null;
@@ -157,6 +159,7 @@ rwt.qx.Class.define( "rwt.widgets.Button", {
       if( this._mnemonicIndex !== null && !value ) {
         this._applyText( false );
       }
+	  this.setAriaDisabled( !value );
     },
 
     //overwritten:
@@ -187,6 +190,5 @@ rwt.qx.Class.define( "rwt.widgets.Button", {
     _notifySelected : function() {
       rwt.remote.EventUtil.notifySelected( this );
     }
-
   }
 } );

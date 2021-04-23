@@ -18,9 +18,10 @@ var $labelTemplate = $( "<div>" ).css( {
   textDecoration : "inherit"
 } );
 
-var $imageTemplate = $( "<div>" ).css( {
-  position : "absolute",
-  backgroundRepeat : "no-repeat"
+var $imageTemplate = $("<img />", { 
+		alt: ""
+  }).css( {
+  position : "absolute"
 } );
 
 rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
@@ -47,6 +48,11 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
     this.__paddingCache = [ 0, 0, 0, 0 ];
     this.__fontCache = {};
     this.__colorCache = "";
+	this.__imgAlt = [];
+	this._ariaRole = null;
+	this._ariaLabel = [];
+	this._ariaDisabled = null;
+	this._ariaChecked = false;
     this._flexibleCell = -1;
     this._expandFlexCell = false;
     this.initWidth();
@@ -226,6 +232,14 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
     setFlexibleCell : function( value ) {
       this._flexibleCell = value;
     },
+	
+	setImgAlt : function(cell, value ) {
+      this.__imgAlt[ cell ] = value;
+    },
+	
+	getImgAlt : function( cell ) {
+      return this.__imgAlt[ cell ] == null ? "" : this.__imgAlt[ cell ];
+    },
 
     getFlexibleCell : function() {
       return this._flexibleCell;
@@ -279,6 +293,39 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
       }
       return height;
     },
+	
+	/*
+    ---------------------------------------------------------------------------
+      WAI-ARIA
+    ---------------------------------------------------------------------------
+    */
+	setAriaRole : function( roleName ) {
+		 this._ariaRole = roleName;
+    },
+	
+	setAriaLabel : function( labelName ) {
+		 this._ariaLabel[ 0 ] = labelName;
+    },
+	
+	setAriaLabel : function( cell, labelName ) {
+		 this._ariaLabel[ cell ] = labelName;
+    },
+	
+	setAriaDisabled : function( disabled ) {
+		 this._ariaDisabled = disabled;
+    },
+	
+	changeAriaLabelTo : function( labelName ) {
+		 this.$el.attr( {
+				'aria-label' : labelName
+		 } );
+    },
+	
+	changeAriaCheckedTo : function( checked ) {
+		 this.$el.attr( {
+			'aria-checked' : checked
+		} );
+    },
 
     /*
     ---------------------------------------------------------------------------
@@ -296,6 +343,7 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
         } else {
           rwt.html.Font.reset( this );
         }
+		this._createAriaAttributes();
       }
     },
 
@@ -330,6 +378,34 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
         this._applyWordWrap( true );
       }
     },
+	
+	_createAriaAttributes : function() {
+		if( this._ariaRole != null ) {
+			this.$el.attr( {
+				role : this._ariaRole
+			  } );
+		}
+		
+		if( this._ariaLabel[ 0 ] != null ) {
+			this.$el.attr( {
+				'aria-label' : this._ariaLabel[ 0 ]
+			  } );
+		}
+		
+		for( var i = 1; i < this.__cellCount; i++ ) {
+			if( this._ariaLabel[ i ] != null ) {
+			  this.$cells[ i ].attr( {
+				'aria-label' : this._ariaLabel[ i ]
+			  } );
+			}
+		}
+		
+		if( this._ariaDisabled != null ) {
+			this.$el.attr( {
+				'aria-disabled' : this._ariaDisabled
+			} );
+		}
+	},
 
     /*
     ---------------------------------------------------------------------------
@@ -721,9 +797,12 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
     },
 
     _updateImage : function( cell ) {
-      this.$cells[ cell ].css( {
+	  this.$cells[ cell ].css( {
         opacity : this.getEnabled() ? 1 : 0.3,
-        backgroundImage : this.getCellContent( cell )
+      } );
+      this.$cells[ cell ].attr( {
+        src : this.getCellContent( cell ),
+		alt : this.getImgAlt( cell )
       } );
     },
 
@@ -763,7 +842,6 @@ rwt.qx.Class.define( "rwt.widgets.base.MultiCellWidget", {
     _updateLabel : function( cell ) {
       this.$cells[ cell ].html( this.getCellContent( cell ) );
     }
-
   }
 
 } );

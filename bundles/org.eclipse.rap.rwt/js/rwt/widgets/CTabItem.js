@@ -212,7 +212,7 @@ rwt.qx.Class.define( "rwt.widgets.CTabItem", {
       this.updateCloseButton( false );
     },
 
-    updateCloseButton : function( over ) {
+    updateCloseButton : function( over ) {						 
       var visible = false;
       if( this._canClose || this._showClose ) {
         var unselectedVisible = this._parent.getUnselectedCloseVisible() && this.hasState( "over" );
@@ -222,6 +222,8 @@ rwt.qx.Class.define( "rwt.widgets.CTabItem", {
         var image = over ? rwt.widgets.CTabItem.IMG_CLOSE_HOVER : rwt.widgets.CTabItem.IMG_CLOSE;
         this.setCellContent( 2, image );
         this.setCellDimension( 2, 16, 16 );
+		this.setImgAlt(2, "Schliessen");
+		this.setAriaLabel(2, "Schliessen");
       } else {
         this.setCellContent( 2, null );
         this.setCellDimension( 2, 0, 0 );

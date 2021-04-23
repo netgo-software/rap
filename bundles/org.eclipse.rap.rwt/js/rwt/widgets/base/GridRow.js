@@ -436,12 +436,16 @@ rwt.qx.Class.define( "rwt.widgets.base.GridRow", {
       var renderBounds = isTreeColumn || !this._scrolling;
       if( source !== null ) {
         renderBounds = renderBounds || !this.$cellImages[ cell ];
-        this._getCellImageElement( cell ).css( {
-          "opacity" : this._gridConfig.enabled ? 1 : FADED,
-          "backgroundImage" : source[ 0 ] || ""
-        } );
+		var elem = this._getCellImageElement( cell );
+        elem.css( {
+			"opacity" : this._gridConfig.enabled ? 1 : FADED
+		} );
+		elem.attr( {
+			src : source[ 0 ] || "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D",
+			alt : ""
+		} );
       } else if( this.$cellImages[ cell ] ) {
-        this._getCellImageElement( cell ).css( { "backgroundImage" : "" } );
+        this._getCellImageElement( cell ).attr( { src : "data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs%3D" } );
       }
       if( renderBounds ) {
         this._renderCellImageBounds( cell );
@@ -616,9 +620,8 @@ rwt.qx.Class.define( "rwt.widgets.base.GridRow", {
         element.css( {
           "left" : this._mirror ? "" : left,
           "right" : this._mirror ? left : "",
-          "top" : 0,
-          "width" : width,
-          "height" : "100%"
+		  "top" : 4,
+          "width" : width
         } );
       }
     },
@@ -824,8 +827,7 @@ rwt.qx.Class.define( "rwt.widgets.base.GridRow", {
     _getCellImageElement : function( cell ) {
       var result = this.$cellImages[ cell ];
       if( !result ) {
-        result = this._createElement( 3 );
-        result.css( { "backgroundRepeat" : "no-repeat", "backgroundPosition" : "center" } );
+        result = this._createImageElement( 3 );
         this.$cellImages[ cell ] = result;
       }
       return result;
@@ -892,6 +894,16 @@ rwt.qx.Class.define( "rwt.widgets.base.GridRow", {
         "overflow" : "hidden",
         "zIndex" : zIndex
       } ).appendTo( this.$el );
+    },
+	
+	_createImageElement : function( zIndex ) {
+      return $("<img />", { 
+				alt: ""
+		  }).css( {
+			"position" : "absolute",
+			"overflow" : "hidden",
+			"zIndex" : zIndex
+		} ).appendTo( this.$el );
     },
 
     _removeCells : function( from, to ) {
