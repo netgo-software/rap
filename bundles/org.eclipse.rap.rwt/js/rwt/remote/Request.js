@@ -124,7 +124,8 @@ rwt.remote.Request.prototype = {
     for( var i = 0; i < values.length; i++ ) {
       var pair = values[ i ].match( /^([^:]+)\s*:\s*(.+)$/i );
       if( pair ) {
-        result[ pair[ 1 ] ] = pair[ 2 ];
+        // Note: According to HTTP/2 spec all response headers are now lower-case
+        result[ pair[ 1 ].toLowerCase() ] = pair[ 2 ];
       }
     }
     return result;
